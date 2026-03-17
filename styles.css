@@ -407,32 +407,6 @@ img {
   font-weight: 700;
 }
 
-.site-footer {
-  margin-top: 34px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
-}
-
-.site-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 18px;
-  align-items: center;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.site-stats-title {
-  color: #4a433d;
-  font-weight: 600;
-}
-
-.site-stats-item strong {
-  color: var(--text);
-  font-weight: 700;
-}
-
 @media (max-width: 760px) {
   .hero {
     grid-template-columns: 1fr;
