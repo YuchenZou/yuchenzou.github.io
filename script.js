@@ -124,6 +124,62 @@ function attachHoverPreview(element, item) {
   element.addEventListener("blur", hide);
 }
 
+function setMetaContent(id, value) {
+  const element = document.getElementById(id);
+  if (!element || !value) {
+    return;
+  }
+
+  element.setAttribute("content", value);
+}
+
+function extractEmailAddress(rawEmail) {
+  const match = rawEmail.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+  return match ? match[0] : "";
+}
+
+function updateStructuredData() {
+  const schemaScript = document.getElementById("personSchema");
+  if (!schemaScript) {
+    return;
+  }
+
+  const externalProfiles = (siteData.profile.contacts || [])
+    .map((contact) => contact.href)
+    .filter((href) => isExternalHref(href) && !href.startsWith("mailto:"));
+  const emailAddress = extractEmailAddress(siteData.profile.email || "");
+
+  // Remove empty fields so the generated schema stays concise.
+  const schema = Object.fromEntries(
+    Object.entries({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: siteData.profile.name,
+      alternateName: siteData.profile.aliases,
+      description: siteData.meta.description,
+      email: emailAddress ? `mailto:${emailAddress}` : undefined,
+      affiliation: siteData.profile.affiliation
+        ? {
+            "@type": "Organization",
+            name: siteData.profile.affiliation,
+          }
+        : undefined,
+      sameAs: externalProfiles.length ? externalProfiles : undefined,
+    }).filter(([, value]) => value !== undefined && value !== "")
+  );
+
+  schemaScript.textContent = JSON.stringify(schema, null, 2);
+}
+
+function updateSeoMeta() {
+  document.title = siteData.meta.title;
+  setMetaContent("metaDescription", siteData.meta.description);
+  setMetaContent("metaKeywords", (siteData.meta.keywords || []).join(", "));
+  setMetaContent("metaOgTitle", siteData.meta.title);
+  setMetaContent("metaOgDescription", siteData.meta.description);
+  updateStructuredData();
+}
+
 function renderNavigation() {
   const navTabs = document.getElementById("navTabs");
 
@@ -141,8 +197,14 @@ function renderNavigation() {
 }
 
 function renderProfile() {
-  document.title = siteData.meta.title;
+  updateSeoMeta();
   document.getElementById("heroName").textContent = siteData.profile.name;
+  const aliases = (siteData.profile.aliases || []).filter(Boolean);
+  const heroAliases = document.getElementById("heroAliases");
+  heroAliases.hidden = !aliases.length;
+  heroAliases.textContent = aliases.length
+    ? `Also written as: ${aliases.join(" / ")}`
+    : "";
   document.getElementById("heroEmail").textContent = siteData.profile.email || "";
 
   const profilePhoto = document.getElementById("profilePhoto");

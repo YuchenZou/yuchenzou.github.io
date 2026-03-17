@@ -1,9 +1,22 @@
 const siteData = {
   meta: {
-    title: "Yuchen Zou (邹雨辰)",
+    title: "Yuchen Zou (邹雨辰) | Personal Homepage",
+    description:
+      "Yuchen Zou (邹雨辰, Zou Yuchen, zouyuchen) is a Ph.D. student at Xi'an Jiaotong University focusing on biometrics and 2D/3D AIGC generation.",
+    keywords: [
+      "Yuchen Zou",
+      "邹雨辰",
+      "Zou Yuchen",
+      "zouyuchen",
+      "Xi'an Jiaotong University",
+      "biometrics",
+      "2D/3D AIGC generation",
+    ],
   },
   profile: {
     name: "Yuchen Zou (邹雨辰)",
+    aliases: ["Zou Yuchen", "zouyuchen"],
+    affiliation: "Xi'an Jiaotong University",
     photo: "./assets/images/profile/photo.jpg",
     email: "Email: yuchenzou@stu.xjtu.edu.cn",
     about: [

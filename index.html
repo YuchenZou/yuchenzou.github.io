@@ -3,11 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>个人主页</title>
+    <title>Yuchen Zou (邹雨辰) | Personal Homepage</title>
     <meta
+      id="metaDescription"
       name="description"
-      content="参考学术主页风格制作的简洁个人网站模板。"
+      content="Yuchen Zou (邹雨辰, Zou Yuchen, zouyuchen) is a Ph.D. student at Xi'an Jiaotong University focusing on biometrics and 2D/3D AIGC generation."
     />
+    <meta
+      id="metaKeywords"
+      name="keywords"
+      content="Yuchen Zou, 邹雨辰, Zou Yuchen, zouyuchen, Xi'an Jiaotong University, biometrics, 2D/3D AIGC generation"
+    />
+    <meta name="author" content="Yuchen Zou (邹雨辰)" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta id="metaOgTitle" property="og:title" content="Yuchen Zou (邹雨辰) | Personal Homepage" />
+    <meta
+      id="metaOgDescription"
+      property="og:description"
+      content="Yuchen Zou (邹雨辰, Zou Yuchen, zouyuchen) is a Ph.D. student at Xi'an Jiaotong University focusing on biometrics and 2D/3D AIGC generation."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,6 +46,7 @@
 
           <div class="hero-content">
             <h1 class="hero-title" id="heroName">Your Name</h1>
+            <p class="hero-aliases" id="heroAliases" hidden></p>
             <p class="hero-email" id="heroEmail"></p>
             <div class="hero-description" id="heroDescription"></div>
             <div class="contact-list" id="contactButtons"></div>
@@ -59,6 +76,7 @@
     </div>
 
     <script src="./site-data.js"></script>
+    <script id="personSchema" type="application/ld+json"></script>
     <script src="./script.js"></script>
   </body>
 </html>
