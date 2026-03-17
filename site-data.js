@@ -132,7 +132,7 @@ const siteData = {
       date: "2025",
       title: "入选中国科协青培(前青托)工程博士生专项",
       description:
-        "Selected for the 2025 China Association for Science and Technology Young Talent Support Program for Doctoral Students.",
+        "Selected for the Young Elite Scientists Sponsorship Program (Doctoral Student Special Plan) by CAST.",
     },
     {
       date: "2023",
