@@ -130,7 +130,7 @@ const siteData = {
   awards: [
     {
       date: "2025",
-      title: "入选中国科协青培(前青托)工程博士生专项",
+      title: "入选中国科协青培工程(前青托工程)博士生专项",
       description:
         "Selected for the Young Elite Scientists Sponsorship Program (Doctoral Student Special Plan) by CAST.",
     },
