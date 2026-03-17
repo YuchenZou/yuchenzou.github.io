@@ -21,7 +21,7 @@ const siteData = {
     email: "Email: yuchenzou@stu.xjtu.edu.cn",
     about: [
       "I am a Ph.D. student at <strong>Xi'an Jiaotong University</strong>. My research interests lie in <em>biometrics</em> and <em>2D/3D AIGC generation</em>.",
-      "I received my B.S. from Shandong University in 2022, and joined Xi'an Jiaotong University in the same year. I transferred to the Ph.D. program in 2024.",
+      "I received my B.Eng. from Shandong University in 2022, and joined Xi'an Jiaotong University in the same year. I transferred to the Ph.D. program in 2024.",
       "I am currently <strong>actively looking for internship opportunities</strong>.",
       ],
     contacts: [
