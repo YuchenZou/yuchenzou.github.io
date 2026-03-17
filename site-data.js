@@ -4,7 +4,7 @@ const siteData = {
   },
   profile: {
     name: "Yuchen Zou (邹雨辰)",
-    photo: "./photo.jpg",
+    photo: "./assets/images/profile/photo.jpg",
     email: "Email: yuchenzou@stu.xjtu.edu.cn",
     about: [
       "I am a Ph.D. student at <strong>Xi'an Jiaotong University</strong>. My research interests lie in <em>biometrics</em> and <em>2D/3D AIGC generation</em>.",
@@ -25,8 +25,8 @@ const siteData = {
       {
         label: "WeChat",
         icon: "wechat",
-        href: "./wechat.jpg",
-        preview: "./wechat.jpg",
+        href: "./assets/images/contact/wechat.jpg",
+        preview: "./assets/images/contact/wechat.jpg",
       },
     ],
   },
@@ -35,7 +35,11 @@ const siteData = {
     { label: "Publications", href: "#publications" },
     { label: "Awards", href: "#awards" },
     { label: "Internships", href: "#internships" },
-    { label: "WeChat", href: "./wechat.jpg", preview: "./wechat.jpg" },
+    {
+      label: "WeChat",
+      href: "./assets/images/contact/wechat.jpg",
+      preview: "./assets/images/contact/wechat.jpg",
+    },
   ],
   news: [
     {
@@ -56,7 +60,7 @@ const siteData = {
       title: "FlowPalm: Optical Flow-Driven Non-Rigid Deformation for Geometrically Diverse Palmprint Generation",
       authors: "<strong>Yuchen Zou</strong>, Huikai Shao*, Lihuang Fang, Zhipeng Xiong, Dexing Zhong*",
       venue: "CVPR 2026",
-      image: "./cvpr26_palmflow.jpg",
+      image: "./assets/images/publications/cvpr26_palmflow.jpg",
       links: [
         { label: "Project", href: "https://yuchenzou.github.io/FlowPalm/" },
         // { label: "Paper", href: "#" },
@@ -66,7 +70,7 @@ const siteData = {
       title: "CogStereo: Neural Stereo Matching with Implicit Spatial Cognition Embedding",
       authors: "Lihuang Fang, Xiao Hu, <strong>Yuchen Zou</strong>, Hong Zhang*",
       venue: "ICRA 2026",
-      image: "./icra26_cogstereo.jpg",
+      image: "./assets/images/publications/icra26_cogstereo.jpg",
       links: [
         { label: "Paper", href: "https://arxiv.org/abs/2510.22119" },
         { label: "Code", href: "https://github.com/lhfang228/CogStereo" },
@@ -76,7 +80,7 @@ const siteData = {
       title: "PFIG-Palm: Controllable Palmprint Generation via Pixel and Feature Identity Guidance",
       authors: "<strong>Yuchen Zou</strong>, Huikai Shao*, Chengcheng Liu, Siyu Zhu, Zongqing Hou, Dexing Zhong",
       venue: "TIP 2025",
-      image: "./tip25_PFIG.jpg",
+      image: "./assets/images/publications/tip25_PFIG.jpg",
       links: [
         { label: "Paper", href: "https://ieeexplore.ieee.org/document/11196020" },
         { label: "Code", href: "https://github.com/YuchenZou/PFIG-Palm" },
@@ -86,7 +90,7 @@ const siteData = {
       title: "Learning to Generalize Unseen Dataset for Cross-Dataset Palmprint Recognition",
       authors: "Huikai Shao, <strong>Yuchen Zou</strong> (student first author), Chengcheng Liu, Qiang Guo, Dexing Zhong*",
       venue: "TIFS 2024",
-      image: "./tifs24_PDFG.jpg",
+      image: "./assets/images/publications/tifs24_PDFG.jpg",
       links: [
         { label: "Paper", href: "https://ieeexplore.ieee.org/document/10453292" },
       ],
@@ -95,7 +99,7 @@ const siteData = {
       title: "Unsupervised Palmprint Image Quality Assessment via Pseudo-Label Generation and Ranking Guidance",
       authors: "<strong>Yuchen Zou</strong>, Chengcheng Liu, Huikai Shao*, Dexing Zhong",
       venue: "TIM 2023",
-      image: "./tim23_PGRP.jpg",
+      image: "./assets/images/publications/tim23_PGRP.jpg",
       links: [
         { label: "Paper", href: "https://ieeexplore.ieee.org/document/10158718" },
       ],
@@ -104,7 +108,7 @@ const siteData = {
       title: "Cross-dataset Image Matching Network for Heterogeneous Palmprint Recognition",
       authors: "<strong>Yuchen Zou</strong>, Huikai Shao, Dexing Zhong*",
       venue: "CCBR 2022",
-      image: "./ccbr22.jpg",
+      image: "./assets/images/publications/ccbr22.jpg",
       links: [
         { label: "Paper", href: "https://link.springer.com/chapter/10.1007/978-3-031-20233-9_6" },
       ],
