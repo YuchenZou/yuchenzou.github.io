@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人主页</title>
+    <meta
+      name="description"
+      content="参考学术主页风格制作的简洁个人网站模板。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <nav class="nav" id="navTabs" aria-label="页面导航"></nav>
+      </header>
+
+      <main>
+        <section class="hero" id="about">
+          <div class="hero-photo-wrap">
+            <img id="profilePhoto" class="hero-photo" src="" alt="个人照片" />
+          </div>
+
+          <div class="hero-content">
+            <h1 class="hero-title" id="heroName">Your Name</h1>
+            <p class="hero-email" id="heroEmail"></p>
+            <div class="hero-description" id="heroDescription"></div>
+            <div class="contact-list" id="contactButtons"></div>
+          </div>
+        </section>
+
+        <section class="content-section" id="newsSection">
+          <h2 class="section-title">News</h2>
+          <div class="news-list" id="newsList"></div>
+        </section>
+
+        <section class="content-section" id="publications">
+          <h2 class="section-title">Publications</h2>
+          <div class="publication-list" id="publicationList"></div>
+        </section>
+
+        <section class="content-section" id="awards">
+          <h2 class="section-title">Awards</h2>
+          <div class="entry-list" id="awardsList"></div>
+        </section>
+
+        <section class="content-section" id="internships">
+          <h2 class="section-title">Internships</h2>
+          <div class="entry-list" id="internshipsList"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./site-data.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
