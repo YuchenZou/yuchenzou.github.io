@@ -199,12 +199,6 @@ function renderNavigation() {
 function renderProfile() {
   updateSeoMeta();
   document.getElementById("heroName").textContent = siteData.profile.name;
-  const aliases = (siteData.profile.aliases || []).filter(Boolean);
-  const heroAliases = document.getElementById("heroAliases");
-  heroAliases.hidden = !aliases.length;
-  heroAliases.textContent = aliases.length
-    ? `Also written as: ${aliases.join(" / ")}`
-    : "";
   document.getElementById("heroEmail").textContent = siteData.profile.email || "";
 
   const profilePhoto = document.getElementById("profilePhoto");

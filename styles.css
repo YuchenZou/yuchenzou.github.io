@@ -109,13 +109,6 @@ img {
   line-height: 1.2;
 }
 
-.hero-aliases {
-  margin: -6px 0 10px;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
 .hero-email {
   margin: -2px 0 12px;
   color: #6c645c;
