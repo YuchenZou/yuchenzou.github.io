@@ -122,6 +122,9 @@ function attachHoverPreview(element, item) {
   element.addEventListener("mouseleave", hide);
   element.addEventListener("focus", show);
   element.addEventListener("blur", hide);
+  element.addEventListener("click", (event) => {
+    event.preventDefault();
+  });
 }
 
 function setMetaContent(id, value) {

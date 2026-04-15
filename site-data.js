@@ -56,6 +56,10 @@ const siteData = {
   ],
   news: [
     {
+      date: "Apr, 2026",
+      text: "FlowPalm was selected as a <strong>CVPR 2026 Highlight</strong>! 🎉",
+    },
+    {
       date: "Feb, 2026",
       text: "One paper is accepted by <strong>CVPR 2026</strong>! 🎉",
     },
@@ -72,11 +76,11 @@ const siteData = {
     {
       title: "FlowPalm: Optical Flow-Driven Non-Rigid Deformation for Geometrically Diverse Palmprint Generation",
       authors: "<strong>Yuchen Zou</strong>, Huikai Shao*, Lihuang Fang, Zhipeng Xiong, Dexing Zhong*",
-      venue: "CVPR 2026",
+      venue: "CVPR 2026 (Highlight)",
       image: "./assets/images/publications/cvpr26_palmflow.jpg",
       links: [
         { label: "Project", href: "https://yuchenzou.github.io/FlowPalm/" },
-        // { label: "Paper", href: "#" },
+        { label: "Paper", href: "http://arxiv.org/abs/2604.09989" },
       ],
     },
     {
