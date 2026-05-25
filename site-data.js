@@ -2,14 +2,16 @@ const siteData = {
   meta: {
     title: "Yuchen Zou (邹雨辰) | Personal Homepage",
     description:
-      "Yuchen Zou (邹雨辰, Zou Yuchen, zouyuchen) is a Ph.D. student at Xi'an Jiaotong University focusing on biometrics and 2D/3D AIGC generation.",
+      "Yuchen Zou (邹雨辰, Zou Yuchen, zouyuchen) is a Ph.D. student at Xi'an Jiaotong University and a Tencent Qingyun Program intern focusing on biometrics, palm recognition, and 2D/3D AIGC generation.",
     keywords: [
       "Yuchen Zou",
       "邹雨辰",
       "Zou Yuchen",
       "zouyuchen",
       "Xi'an Jiaotong University",
+      "Tencent Qingyun Program",
       "biometrics",
+      "palm recognition",
       "2D/3D AIGC generation",
     ],
   },
@@ -22,7 +24,7 @@ const siteData = {
     about: [
       "I am a Ph.D. student at <strong>Xi'an Jiaotong University</strong>. My research interests lie in <em>biometrics</em> and <em>2D/3D AIGC generation</em>.",
       "I received my B.Eng. from Shandong University in 2022, and joined Xi'an Jiaotong University in the same year. I transferred to the Ph.D. program in 2024.",
-      "I am currently <strong>actively looking for internship opportunities</strong>.",
+      "Since 2026.05, I have been a <strong>Tencent Qingyun Program intern</strong>, working on <em>palm recognition</em> and <em>AIGC</em>.",
       ],
     contacts: [
       {
@@ -147,16 +149,20 @@ const siteData = {
   ],
   internships: [
     {
-      date: "2024 - 2026",
-      title: "Research Intern, IDEA Research Institute",
+      date: "2026.05 - Present",
+      title: "Qingyun Program Intern, Tencent",
+      logo: "./assets/images/intern/tencent_logo.png",
+      logoAlt: "Tencent logo",
       description:
-        "Worked at <strong>International Digital Economy Academy (IDEA)</strong> from <strong>Aug. 2024 to Feb. 2026</strong>, focusing on research related to low-altitude economy and generative modeling.",
+        "Working as a <strong>Tencent Qingyun Program</strong> intern on palm recognition and AIGC.",
     },
     {
-      date: "Now",
-      title: "Open to Internship Opportunities",
+      date: "2024.08 - 2026.04",
+      title: "Research Intern, IDEA Research Institute",
+      logo: "./assets/images/intern/idea-logo.png",
+      logoAlt: "IDEA Research Institute logo",
       description:
-        "I am currently <strong>actively looking for internship opportunities</strong>, especially in biometrics, computer vision, and 2D/3D AIGC generation.",
+        "Worked at <strong>International Digital Economy Academy (IDEA)</strong>, focusing on research related to low-altitude economy and generative modeling.",
     },
   ],
 };

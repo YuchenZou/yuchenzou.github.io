@@ -313,9 +313,21 @@ function renderEntrySection(listId, items, emptyMessage) {
     const title = createElement("div", "entry-title", item.title);
     const description = createElement("div", "entry-description");
 
+    if (item.logo) {
+      article.classList.add("has-logo");
+
+      const logoWrap = createElement("div", "entry-logo");
+      const logo = createElement("img");
+      logo.src = item.logo;
+      logo.alt = item.logoAlt || `${item.title} logo`;
+      logoWrap.appendChild(logo);
+      article.append(date, logoWrap, body);
+    } else {
+      article.append(date, body);
+    }
+
     description.innerHTML = item.description;
     body.append(title, description);
-    article.append(date, body);
     list.appendChild(article);
   });
 }

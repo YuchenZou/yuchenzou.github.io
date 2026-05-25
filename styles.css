@@ -372,10 +372,32 @@ img {
   align-items: start;
 }
 
+.entry-item.has-logo {
+  grid-template-columns: 124px 76px 1fr;
+}
+
 .entry-date {
   color: #72685e;
   font-size: 0.96rem;
   line-height: 1.5;
+}
+
+.entry-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 54px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fff;
+}
+
+.entry-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .entry-body {
@@ -448,6 +470,21 @@ img {
   .entry-item {
     grid-template-columns: 1fr;
     gap: 2px;
+  }
+
+  .entry-item.has-logo {
+    grid-template-columns: 56px 1fr;
+    gap: 6px 10px;
+  }
+
+  .entry-item.has-logo .entry-date {
+    grid-column: 1 / -1;
+  }
+
+  .entry-logo {
+    width: 54px;
+    height: 44px;
+    padding: 6px;
   }
 
   .hover-preview {
