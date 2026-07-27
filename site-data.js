@@ -58,6 +58,10 @@ const siteData = {
   ],
   news: [
     {
+      date: "Jul, 2026",
+      text: "Two papers are accepted by <strong>ACM MM 2026</strong>! 🎉",
+    },
+    {
       date: "May, 2026",
       text: 'Our <a href="https://arxiv.org/pdf/2603.01613" target="_blank" rel="noreferrer"><strong>paper</strong></a> received the <strong>Best Presentation Award</strong> at the ICRA 2026 Workshop on Robots Meet Prior Maps! 🎉',
     },
@@ -79,6 +83,22 @@ const siteData = {
     },
   ],
   publications: [
+    {
+      title: "CityPaint: A Free Lunch from 2D Diffusion for City-Scale 3D Texturing",
+      authors: '<a href="https://openreview.net/profile?id=~Yuchen_Zou2" target="_blank" rel="noreferrer"><strong>Yuchen Zou</strong></a>, <a href="https://openreview.net/profile?id=~Lihuang_Fang2" target="_blank" rel="noreferrer">Lihuang Fang</a>, <a href="https://openreview.net/profile?id=~Siyu_Zhu8" target="_blank" rel="noreferrer">Siyu Zhu</a>, <a href="https://openreview.net/profile?id=~Xiao_Hu13" target="_blank" rel="noreferrer">Xiao Hu</a>',
+      venue: "ACM MM 2026",
+      image: "./assets/images/publications/acmmm26_citypaint.png",
+      links: [],
+    },
+    {
+      title: "EmoAgent-R1: Towards Multimodal Emotion Understanding with Reinforcement Learning-based Dynamic Agent Specialization",
+      authors: 'Lihuang Fang<sup>‡</sup>, <strong>Yuchen Zou<sup>‡</sup></strong>, Kebing Jin, Jinghui Qin* (<sup>‡</sup> Equal contribution)',
+      venue: "ACM MM 2026",
+      image: "./assets/images/publications/acmmm26_emoagent_r1.png",
+      links: [
+        { label: "Paper", href: "https://arxiv.org/pdf/2607.21013" },
+      ],
+    },
     {
       title: "Uncertainty-Aware Hierarchical Re-Localization in OpenStreetMap via Semantic Alignment",
       authors: "<strong>Yuchen Zou</strong>, Xiao Hu, Lihuang Fang, Yuqing Tang*",
