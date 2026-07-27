@@ -92,7 +92,7 @@ const siteData = {
     },
     {
       title: "EmoAgent-R1: Towards Multimodal Emotion Understanding with Reinforcement Learning-based Dynamic Agent Specialization",
-      authors: 'Lihuang Fang<sup>‡</sup>, <strong>Yuchen Zou<sup>‡</sup></strong>, Kebing Jin, Jinghui Qin* (<sup>‡</sup> Equal contribution)',
+      authors: 'Lihuang Fang<sup>†</sup>, <strong>Yuchen Zou<sup>†</sup></strong>, Kebing Jin, Jinghui Qin* (<sup>†</sup> Equal contribution)',
       venue: "ACM MM 2026",
       image: "./assets/images/publications/acmmm26_emoagent_r1.png",
       links: [
