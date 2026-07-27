@@ -85,7 +85,7 @@ const siteData = {
   publications: [
     {
       title: "CityPaint: A Free Lunch from 2D Diffusion for City-Scale 3D Texturing",
-      authors: '<a href="https://openreview.net/profile?id=~Yuchen_Zou2" target="_blank" rel="noreferrer"><strong>Yuchen Zou</strong></a>, <a href="https://openreview.net/profile?id=~Lihuang_Fang2" target="_blank" rel="noreferrer">Lihuang Fang</a>, <a href="https://openreview.net/profile?id=~Siyu_Zhu8" target="_blank" rel="noreferrer">Siyu Zhu</a>, <a href="https://openreview.net/profile?id=~Xiao_Hu13" target="_blank" rel="noreferrer">Xiao Hu</a>',
+      authors: '<a href="https://openreview.net/profile?id=~Yuchen_Zou2" target="_blank" rel="noreferrer"><strong>Yuchen Zou<sup>†</sup></strong></a>, <a href="https://openreview.net/profile?id=~Lihuang_Fang2" target="_blank" rel="noreferrer">Lihuang Fang<sup>†</sup></a>, <a href="https://openreview.net/profile?id=~Siyu_Zhu8" target="_blank" rel="noreferrer">Siyu Zhu</a>, <a href="https://openreview.net/profile?id=~Xiao_Hu13" target="_blank" rel="noreferrer">Xiao Hu</a> (<sup>†</sup> Equal contribution)',
       venue: "ACM MM 2026",
       image: "./assets/images/publications/acmmm26_citypaint.png",
       links: [],
