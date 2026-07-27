@@ -58,7 +58,7 @@ const siteData = {
   ],
   news: [
     {
-      date: "May 11, 2026",
+      date: "May, 2026",
       text: 'Our <a href="https://arxiv.org/pdf/2603.01613" target="_blank" rel="noreferrer"><strong>paper</strong></a> received the <strong>Best Presentation Award</strong> at the ICRA 2026 Workshop on Robots Meet Prior Maps! 🎉',
     },
     {
