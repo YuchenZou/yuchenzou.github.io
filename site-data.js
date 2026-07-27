@@ -58,6 +58,10 @@ const siteData = {
   ],
   news: [
     {
+      date: "May 11, 2026",
+      text: 'Our <a href="https://arxiv.org/pdf/2603.01613" target="_blank" rel="noreferrer"><strong>paper</strong></a> received the <strong>Best Presentation Award</strong> at the ICRA 2026 Workshop on Robots Meet Prior Maps! 🎉',
+    },
+    {
       date: "Apr, 2026",
       text: "FlowPalm was selected as a <strong>CVPR 2026 Highlight</strong>! 🎉",
     },
@@ -75,6 +79,15 @@ const siteData = {
     },
   ],
   publications: [
+    {
+      title: "Uncertainty-Aware Hierarchical Re-Localization in OpenStreetMap via Semantic Alignment",
+      authors: "<strong>Yuchen Zou</strong>, Xiao Hu, Lihuang Fang, Yuqing Tang*",
+      venue: "ICRA 2026 Workshop on Robots Meet Prior Maps (Oral, Best Presentation Award)",
+      image: "./assets/images/publications/icra26_osm_relocalization.png",
+      links: [
+        { label: "Paper", href: "https://arxiv.org/pdf/2603.01613" },
+      ],
+    },
     {
       title: "FlowPalm: Optical Flow-Driven Non-Rigid Deformation for Geometrically Diverse Palmprint Generation",
       authors: "<strong>Yuchen Zou</strong>, Huikai Shao*, Lihuang Fang, Zhipeng Xiong, Dexing Zhong*",
