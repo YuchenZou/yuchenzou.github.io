@@ -233,6 +233,16 @@ img {
   color: var(--accent);
 }
 
+.publication-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: -8px 0 14px;
+  color: #7e776e;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
 .publication-list {
   display: grid;
   gap: 14px;
