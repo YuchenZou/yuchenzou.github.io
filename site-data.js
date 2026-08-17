@@ -24,7 +24,7 @@ const siteData = {
     about: [
       "I am a Ph.D. student at <strong>Xi'an Jiaotong University</strong>. My research interests lie in <em>biometrics</em> and <em>2D/3D AIGC generation</em>.",
       "I received my B.Eng. from Shandong University in 2022, and joined Xi'an Jiaotong University in the same year. I transferred to the Ph.D. program in 2024.",
-      "Since 2026.05, I have been a <strong>Tencent Qingyun Program intern</strong>, working on <em>palm recognition</em> and <em>AIGC</em>.",
+      "Since 2026.05, I have been a <strong>Tencent Qingyun Program intern</strong>.",
       ],
     contacts: [
       {
