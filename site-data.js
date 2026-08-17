@@ -86,14 +86,14 @@ const siteData = {
     {
       title: "CityPaint: A Free Lunch from 2D Diffusion for City-Scale 3D Texturing",
       authors: '<a href="https://openreview.net/profile?id=~Yuchen_Zou2" target="_blank" rel="noreferrer"><strong>Yuchen Zou*</strong></a>, <a href="https://openreview.net/profile?id=~Lihuang_Fang2" target="_blank" rel="noreferrer">Lihuang Fang*</a>, <a href="https://openreview.net/profile?id=~Siyu_Zhu8" target="_blank" rel="noreferrer">Siyu Zhu</a>, <a href="https://openreview.net/profile?id=~Xiao_Hu13" target="_blank" rel="noreferrer">Xiao Hu†</a>',
-      venue: "ACM MM 2026",
+      venue: "ACM MM 2026 (CCF A)",
       image: "./assets/images/publications/acmmm26_citypaint.png",
       links: [],
     },
     {
       title: "EmoAgent-R1: Towards Multimodal Emotion Understanding with Reinforcement Learning-based Dynamic Agent Specialization",
       authors: "Lihuang Fang*, <strong>Yuchen Zou*</strong>, Kebing Jin, Jinghui Qin†",
-      venue: "ACM MM 2026",
+      venue: "ACM MM 2026 (CCF A)",
       image: "./assets/images/publications/acmmm26_emoagent_r1.png",
       links: [
         { label: "Paper", href: "https://arxiv.org/pdf/2607.21013" },
@@ -111,7 +111,7 @@ const siteData = {
     {
       title: "FlowPalm: Optical Flow-Driven Non-Rigid Deformation for Geometrically Diverse Palmprint Generation",
       authors: "<strong>Yuchen Zou</strong>, Huikai Shao†, Lihuang Fang, Zhipeng Xiong, Dexing Zhong†",
-      venue: "CVPR 2026 (Highlight)",
+      venue: "CVPR 2026 (CCF A) (Highlight)",
       image: "./assets/images/publications/cvpr26_palmflow.jpg",
       links: [
         { label: "Project", href: "https://yuchenzou.github.io/FlowPalm/" },
@@ -132,7 +132,7 @@ const siteData = {
     {
       title: "PFIG-Palm: Controllable Palmprint Generation via Pixel and Feature Identity Guidance",
       authors: "<strong>Yuchen Zou</strong>, Huikai Shao†, Chengcheng Liu, Siyu Zhu, Zongqing Hou, Dexing Zhong",
-      venue: "TIP 2025",
+      venue: "TIP 2025 (CCF A)",
       image: "./assets/images/publications/tip25_PFIG.jpg",
       links: [
         { label: "Paper", href: "https://ieeexplore.ieee.org/document/11196020" },
@@ -142,7 +142,7 @@ const siteData = {
     {
       title: "Learning to Generalize Unseen Dataset for Cross-Dataset Palmprint Recognition",
       authors: "Huikai Shao, <strong>Yuchen Zou</strong> (student first author), Chengcheng Liu, Qiang Guo, Dexing Zhong†",
-      venue: "TIFS 2024",
+      venue: "TIFS 2024 (CCF A)",
       image: "./assets/images/publications/tifs24_PDFG.jpg",
       links: [
         { label: "Paper", href: "https://ieeexplore.ieee.org/document/10453292" },
