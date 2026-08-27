@@ -49,7 +49,10 @@ img {
 
 .topbar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 8px;
 }
 
@@ -76,6 +79,73 @@ img {
 .nav-link.is-active {
   color: var(--accent);
   background: var(--accent-soft);
+}
+
+.language-toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 8px 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff 0%, #fdfbf9 100%);
+  color: var(--button-text);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(46, 35, 28, 0.06);
+  cursor: pointer;
+  transition: border-color 0.16s ease, color 0.16s ease,
+    box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.language-toggle:hover {
+  border-color: #cfaca5;
+  color: var(--accent);
+  box-shadow: 0 4px 12px rgba(46, 35, 28, 0.1);
+  transform: translateY(-1px);
+}
+
+.language-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.language-toggle-icon {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  color: var(--accent);
+}
+
+.language-toggle-icon::before {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: 50%;
+  width: 7px;
+  border-right: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+  border-radius: 50%;
+  content: "";
+  transform: translateX(-50%);
+}
+
+.language-toggle-icon::after {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  left: 2px;
+  border-top: 1px solid currentColor;
+  content: "";
+  transform: translateY(-50%);
 }
 
 .hero {
@@ -213,7 +283,7 @@ img {
 
 .news-item {
   display: grid;
-  grid-template-columns: 74px 1fr;
+  grid-template-columns: 104px 1fr;
   gap: 12px;
   align-items: start;
   font-size: 0.98rem;
@@ -222,6 +292,7 @@ img {
 
 .news-date {
   color: #72685e;
+  white-space: nowrap;
 }
 
 .news-content {
@@ -463,9 +534,19 @@ img {
     gap: 8px;
   }
 
+  .topbar {
+    gap: 8px;
+  }
+
   .nav-link {
     padding: 7px 10px;
     font-size: 0.92rem;
+  }
+
+  .language-toggle {
+    min-height: 34px;
+    padding: 7px 11px;
+    font-size: 0.86rem;
   }
 
   .hero-title {

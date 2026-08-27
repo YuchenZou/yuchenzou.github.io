@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +23,7 @@
       content="Yuchen Zou (邹雨辰, Zou Yuchen, zouyuchen) is a Ph.D. student at Xi'an Jiaotong University and a Tencent Qingyun Program intern focusing on biometrics, palm recognition, and 2D/3D AIGC generation."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="zh_CN" />
+    <meta id="metaOgLocale" property="og:locale" content="en_US" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -35,7 +35,16 @@
   <body>
     <div class="page-shell">
       <header class="topbar">
-        <nav class="nav" id="navTabs" aria-label="页面导航"></nav>
+        <nav class="nav" id="navTabs" aria-label="Page navigation"></nav>
+        <button
+          class="language-toggle"
+          id="languageToggle"
+          type="button"
+          aria-label="切换至中文"
+        >
+          <span class="language-toggle-icon" aria-hidden="true"></span>
+          <span id="languageToggleText">中文</span>
+        </button>
       </header>
 
       <main>
@@ -53,26 +62,26 @@
         </section>
 
         <section class="content-section" id="newsSection">
-          <h2 class="section-title">News</h2>
+          <h2 class="section-title" id="newsTitle">News</h2>
           <div class="news-list" id="newsList"></div>
         </section>
 
         <section class="content-section" id="publications">
-          <h2 class="section-title">Publications</h2>
+          <h2 class="section-title" id="publicationsTitle">Publications</h2>
           <p class="publication-note">
-            <span>* Equal contribution</span>
-            <span>† Corresponding author</span>
+            <span id="equalContributionNote">* Equal contribution</span>
+            <span id="correspondingAuthorNote">† Corresponding author</span>
           </p>
           <div class="publication-list" id="publicationList"></div>
         </section>
 
         <section class="content-section" id="awards">
-          <h2 class="section-title">Awards</h2>
+          <h2 class="section-title" id="awardsTitle">Awards</h2>
           <div class="entry-list" id="awardsList"></div>
         </section>
 
         <section class="content-section" id="internships">
-          <h2 class="section-title">Internships</h2>
+          <h2 class="section-title" id="internshipsTitle">Internships</h2>
           <div class="entry-list" id="internshipsList"></div>
         </section>
       </main>

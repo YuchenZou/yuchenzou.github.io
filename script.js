@@ -12,6 +12,42 @@ function createElement(tagName, className, textContent) {
   return element;
 }
 
+const LANGUAGE_STORAGE_KEY = "yuchen-homepage-language";
+const SUPPORTED_LANGUAGES = ["en", "zh"];
+let currentLanguage = getInitialLanguage();
+let navObserver = null;
+
+function getInitialLanguage() {
+  try {
+    const savedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    if (SUPPORTED_LANGUAGES.includes(savedLanguage)) {
+      return savedLanguage;
+    }
+  } catch (error) {
+    // The page still works when storage is unavailable or disabled.
+  }
+
+  return "en";
+}
+
+function getMessages() {
+  return siteTranslations[currentLanguage] || siteTranslations.en;
+}
+
+function getLocalizedItem(section, index, fallback) {
+  return {
+    ...fallback,
+    ...(getMessages()[section]?.[index] || {}),
+  };
+}
+
+function setTextContent(id, value) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.textContent = value;
+  }
+}
+
 function createContactIcon(iconValue) {
   const icon = createElement("span", "contact-icon");
 
@@ -96,7 +132,7 @@ function showHoverPreview(trigger, previewSrc, label) {
 
   hoverPreview.activeTrigger = trigger;
   image.src = previewSrc;
-  image.alt = `${label} preview`;
+  image.alt = `${label} ${getMessages().ui.previewLabel}`;
   positionHoverPreview(trigger);
   container.classList.add("is-visible");
 }
@@ -147,6 +183,8 @@ function updateStructuredData() {
     return;
   }
 
+  const messages = getMessages();
+
   const externalProfiles = (siteData.profile.contacts || [])
     .map((contact) => contact.href)
     .filter((href) => isExternalHref(href) && !href.startsWith("mailto:"));
@@ -157,9 +195,9 @@ function updateStructuredData() {
     Object.entries({
       "@context": "https://schema.org",
       "@type": "Person",
-      name: siteData.profile.name,
+      name: messages.profile.name,
       alternateName: siteData.profile.aliases,
-      description: siteData.meta.description,
+      description: messages.meta.description,
       email: emailAddress ? `mailto:${emailAddress}` : undefined,
       affiliation: siteData.profile.affiliation
         ? {
@@ -175,21 +213,44 @@ function updateStructuredData() {
 }
 
 function updateSeoMeta() {
-  document.title = siteData.meta.title;
-  setMetaContent("metaDescription", siteData.meta.description);
-  setMetaContent("metaKeywords", (siteData.meta.keywords || []).join(", "));
-  setMetaContent("metaOgTitle", siteData.meta.title);
-  setMetaContent("metaOgDescription", siteData.meta.description);
+  const messages = getMessages();
+
+  document.documentElement.lang = messages.htmlLang;
+  document.title = messages.meta.title;
+  setMetaContent("metaDescription", messages.meta.description);
+  setMetaContent("metaKeywords", (messages.meta.keywords || []).join(", "));
+  setMetaContent("metaOgTitle", messages.meta.title);
+  setMetaContent("metaOgDescription", messages.meta.description);
+  setMetaContent("metaOgLocale", messages.ogLocale);
   updateStructuredData();
+}
+
+function renderInterfaceText() {
+  const { ui } = getMessages();
+  const navTabs = document.getElementById("navTabs");
+  const languageToggle = document.getElementById("languageToggle");
+
+  navTabs.setAttribute("aria-label", ui.navLabel);
+  languageToggle.setAttribute("aria-label", ui.switchLabel);
+  languageToggle.title = ui.switchLabel;
+  setTextContent("languageToggleText", ui.switchText);
+  setTextContent("newsTitle", ui.sections.news);
+  setTextContent("publicationsTitle", ui.sections.publications);
+  setTextContent("awardsTitle", ui.sections.awards);
+  setTextContent("internshipsTitle", ui.sections.internships);
+  setTextContent("equalContributionNote", ui.notes.equalContribution);
+  setTextContent("correspondingAuthorNote", ui.notes.correspondingAuthor);
 }
 
 function renderNavigation() {
   const navTabs = document.getElementById("navTabs");
+  navTabs.replaceChildren();
 
   siteData.nav.forEach((item, index) => {
-    const link = createElement("a", "nav-link", item.label);
+    const localizedItem = getLocalizedItem("nav", index, item);
+    const link = createElement("a", "nav-link", localizedItem.label);
     applyLinkBehavior(link, item.href);
-    attachHoverPreview(link, item);
+    attachHoverPreview(link, localizedItem);
 
     if (index === 0 && item.href.startsWith("#")) {
       link.classList.add("is-active");
@@ -200,29 +261,37 @@ function renderNavigation() {
 }
 
 function renderProfile() {
+  const messages = getMessages();
+
   updateSeoMeta();
-  document.getElementById("heroName").textContent = siteData.profile.name;
-  document.getElementById("heroEmail").textContent = siteData.profile.email || "";
+  document.getElementById("heroName").textContent = messages.profile.name;
+  document.getElementById("heroEmail").textContent = messages.profile.email || "";
 
   const profilePhoto = document.getElementById("profilePhoto");
   profilePhoto.src = siteData.profile.photo;
-  profilePhoto.alt = `${siteData.profile.name} 的照片`;
+  profilePhoto.alt = messages.ui.photoAlt;
 
   const description = document.getElementById("heroDescription");
-  siteData.profile.about.forEach((paragraph) => {
+  description.replaceChildren();
+  messages.profile.about.forEach((paragraph) => {
     const paragraphNode = createElement("p");
     paragraphNode.innerHTML = paragraph;
     description.appendChild(paragraphNode);
   });
 
   const contactButtons = document.getElementById("contactButtons");
-  siteData.profile.contacts.forEach((contact) => {
+  contactButtons.replaceChildren();
+  siteData.profile.contacts.forEach((contact, index) => {
+    const translatedContact = {
+      ...contact,
+      ...(messages.profile.contacts?.[index] || {}),
+    };
     const link = createElement("a", "contact-button");
     applyLinkBehavior(link, contact.href);
-    attachHoverPreview(link, contact);
+    attachHoverPreview(link, translatedContact);
 
     const icon = createContactIcon(contact.icon);
-    const label = createElement("span", "", contact.label);
+    const label = createElement("span", "", translatedContact.label);
 
     link.append(icon, label);
     contactButtons.appendChild(link);
@@ -231,23 +300,20 @@ function renderProfile() {
 
 function renderNews() {
   const newsList = document.getElementById("newsList");
+  const { ui } = getMessages();
+  newsList.replaceChildren();
 
   if (!siteData.news.length) {
-    newsList.appendChild(
-      createElement(
-        "div",
-        "empty-note",
-        "还没有填写新闻动态。你可以在 site-data.js 中补充 news 数组。"
-      )
-    );
+    newsList.appendChild(createElement("div", "empty-note", ui.empty.news));
     return;
   }
 
-  siteData.news.forEach((item) => {
+  siteData.news.forEach((item, index) => {
+    const localizedItem = getLocalizedItem("news", index, item);
     const article = createElement("article", "news-item");
-    const date = createElement("div", "news-date", item.date);
+    const date = createElement("div", "news-date", localizedItem.date);
     const content = createElement("div", "news-content");
-    content.innerHTML = item.text;
+    content.innerHTML = localizedItem.text;
 
     article.append(date, content);
     newsList.appendChild(article);
@@ -256,29 +322,36 @@ function renderNews() {
 
 function renderPublications() {
   const publicationList = document.getElementById("publicationList");
+  const { ui } = getMessages();
+  publicationList.replaceChildren();
 
   if (!siteData.publications.length) {
     publicationList.appendChild(
-      createElement(
-        "div",
-        "empty-note",
-        "还没有填写论文条目。你可以复制现有对象并修改标题、作者、图片和链接。"
-      )
+      createElement("div", "empty-note", ui.empty.publications)
     );
     return;
   }
 
-  siteData.publications.forEach((publication) => {
+  siteData.publications.forEach((publication, index) => {
+    const localizedPublication = getLocalizedItem(
+      "publications",
+      index,
+      publication
+    );
     const card = createElement("article", "publication-card");
 
     const thumb = createElement("div", "publication-thumb");
     const image = createElement("img");
     image.src = publication.image;
-    image.alt = `${publication.title} 展示图`;
+    image.alt = `${localizedPublication.title} ${ui.publicationImageAlt}`;
     thumb.appendChild(image);
 
     const meta = createElement("div", "publication-meta");
-    const title = createElement("h3", "publication-title", publication.title);
+    const title = createElement(
+      "h3",
+      "publication-title",
+      localizedPublication.title
+    );
     const authors = createElement("p", "publication-authors");
     authors.innerHTML = publication.authors;
     const venue = createElement("p", "publication-venue", publication.venue);
@@ -287,7 +360,11 @@ function renderPublications() {
     const links = createElement("div", "publication-links");
 
     publication.links.forEach((item) => {
-      const link = createElement("a", "chip-link", item.label);
+      const link = createElement(
+        "a",
+        "chip-link",
+        ui.linkLabels[item.label] || item.label
+      );
       applyLinkBehavior(link, item.href);
       links.appendChild(link);
     });
@@ -298,19 +375,21 @@ function renderPublications() {
   });
 }
 
-function renderEntrySection(listId, items, emptyMessage) {
+function renderEntrySection(listId, items, sectionKey, emptyMessage) {
   const list = document.getElementById(listId);
+  list.replaceChildren();
 
   if (!items.length) {
     list.appendChild(createElement("div", "empty-note", emptyMessage));
     return;
   }
 
-  items.forEach((item) => {
+  items.forEach((item, index) => {
+    const localizedItem = getLocalizedItem(sectionKey, index, item);
     const article = createElement("article", "entry-item");
-    const date = createElement("div", "entry-date", item.date);
+    const date = createElement("div", "entry-date", localizedItem.date);
     const body = createElement("div", "entry-body");
-    const title = createElement("div", "entry-title", item.title);
+    const title = createElement("div", "entry-title", localizedItem.title);
     const description = createElement("div", "entry-description");
 
     if (item.logo) {
@@ -319,20 +398,24 @@ function renderEntrySection(listId, items, emptyMessage) {
       const logoWrap = createElement("div", "entry-logo");
       const logo = createElement("img");
       logo.src = item.logo;
-      logo.alt = item.logoAlt || `${item.title} logo`;
+      logo.alt = item.logoAlt || `${localizedItem.title} logo`;
       logoWrap.appendChild(logo);
       article.append(date, logoWrap, body);
     } else {
       article.append(date, body);
     }
 
-    description.innerHTML = item.description;
+    description.innerHTML = localizedItem.description;
     body.append(title, description);
     list.appendChild(article);
   });
 }
 
 function syncActiveNavOnScroll() {
+  if (navObserver) {
+    navObserver.disconnect();
+  }
+
   const links = Array.from(document.querySelectorAll(".nav-link"));
   const sections = links
     .map((link) => link.getAttribute("href"))
@@ -340,7 +423,7 @@ function syncActiveNavOnScroll() {
     .map((href) => document.querySelector(href))
     .filter(Boolean);
 
-  const observer = new IntersectionObserver(
+  navObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
@@ -362,7 +445,42 @@ function syncActiveNavOnScroll() {
     }
   );
 
-  sections.forEach((section) => observer.observe(section));
+  sections.forEach((section) => navObserver.observe(section));
+}
+
+function renderPage() {
+  const { ui } = getMessages();
+
+  hideHoverPreview();
+  renderInterfaceText();
+  renderNavigation();
+  renderProfile();
+  renderNews();
+  renderPublications();
+  renderEntrySection("awardsList", siteData.awards || [], "awards", ui.empty.awards);
+  renderEntrySection(
+    "internshipsList",
+    siteData.internships || [],
+    "internships",
+    ui.empty.internships
+  );
+  syncActiveNavOnScroll();
+}
+
+function setupLanguageToggle() {
+  const languageToggle = document.getElementById("languageToggle");
+
+  languageToggle.addEventListener("click", () => {
+    currentLanguage = currentLanguage === "en" ? "zh" : "en";
+
+    try {
+      window.localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
+    } catch (error) {
+      // Keep the in-page switch working even when storage is unavailable.
+    }
+
+    renderPage();
+  });
 }
 
 window.addEventListener("scroll", () => {
@@ -377,18 +495,5 @@ window.addEventListener("resize", () => {
   }
 });
 
-renderNavigation();
-renderProfile();
-renderNews();
-renderPublications();
-renderEntrySection(
-  "awardsList",
-  siteData.awards || [],
-  "You can add award information in the awards array of site-data.js."
-);
-renderEntrySection(
-  "internshipsList",
-  siteData.internships || [],
-  "You can add internship information in the internships array of site-data.js."
-);
-syncActiveNavOnScroll();
+setupLanguageToggle();
+renderPage();
