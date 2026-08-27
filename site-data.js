@@ -22,9 +22,9 @@ const siteData = {
     photo: "./assets/images/profile/photo.jpg",
     email: "Email: yuchenzou@stu.xjtu.edu.cn",
     about: [
-      "I am a Ph.D. student at <strong>Xi'an Jiaotong University</strong>. My research interests lie in <em>biometrics</em> and <em>2D/3D AIGC generation</em>.",
+      "I am a Ph.D. student at <strong>Xi'an Jiaotong University</strong>. My research interests lie in <em>2D/3D AIGC generation</em>.",
       "I received my B.Eng. from Shandong University in 2022, and joined Xi'an Jiaotong University in the same year. I transferred to the Ph.D. program in 2024.",
-      "Since 2026.05, I have been a <strong>Tencent Qingyun Program intern</strong>.",
+      "Since 2026.05, I have been a <strong>Tencent 🐧 Qingyun Program intern</strong>.",
       ],
     contacts: [
       {
@@ -188,7 +188,7 @@ const siteData = {
       logo: "./assets/images/intern/tencent_logo.png",
       logoAlt: "Tencent logo",
       description:
-        "Working as a <strong>Tencent Qingyun Program</strong> intern on palm recognition and AIGC.",
+        "Working as a <strong>Tencent Qingyun Program</strong> intern on AIGC and biometrics.",
     },
     {
       date: "2024.08 - 2026.04",
@@ -310,9 +310,9 @@ const siteTranslations = {
       name: "邹雨辰（Yuchen Zou）",
       email: "邮箱：yuchenzou@stu.xjtu.edu.cn",
       about: [
-        "我是<strong>西安交通大学</strong>博士研究生，主要研究方向为<em>生物特征识别</em>与<em>二维/三维 AIGC 生成</em>。",
+        "我是<strong>西安交通大学</strong>博士研究生，主要研究方向为<em>二维/三维 AIGC 生成</em>。",
         "我于 2022 年获得山东大学工学学士学位，同年进入西安交通大学学习，并于 2024 年转入博士研究生阶段。",
-        "自 2026 年 5 月起，我在<strong>腾讯青云计划</strong>实习。",
+        "自 2026 年 5 月起，我在<strong>腾讯 🐧 青云计划</strong>实习。",
       ],
       contacts: [
         { label: "谷歌学术" },
@@ -378,7 +378,7 @@ const siteTranslations = {
       {
         date: "2026.05 - 至今",
         title: "腾讯青云计划实习生",
-        description: "在<strong>腾讯青云计划</strong>开展掌纹识别与 AIGC 相关研究。",
+        description: "在<strong>腾讯青云计划</strong>开展 AIGC 与生物特征识别相关研究。",
       },
       {
         date: "2024.08 - 2026.04",
